@@ -1,0 +1,24 @@
+﻿
+<div class="product-card">
+    <p>@ProductItem.Name</p>
+    <img src="@GetImagePath(@ProductItem.ProductImages.FirstOrDefault()?.ImageUrl)" class="product-image" alt="@ProductItem.Name" />
+    <div class="product-details">
+        <p>@ProductItem.Description</p>
+        <p>Price:  $@ProductItem.Price</p>
+        <p>Quantity: @ProductItem.Quantity</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Product ProductItem { get; set; } = null!;
+
+    private string GetImagePath(string imageUrl)
+    {
+        if (string.IsNullOrEmpty(imageUrl))
+        {
+            return "/images/noimage.jpg";
+        }
+        return imageUrl;
+    }
+}

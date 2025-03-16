@@ -1,0 +1,26 @@
+﻿@page "/"
+@inject IProductService _productService
+
+<PageTitle>Home</PageTitle>
+ <div class="product-container">
+  @foreach(var product in products)
+  {
+     <ProductCard ProductItem="product" />
+  }
+</div>
+
+
+
+
+@code {
+    IEnumerable<Product> products = new List<Product>();
+    string emptyListMessage = "";
+    protected async override Task OnInitializedAsync()
+    {
+        products = await _productService.GetProducts();
+        if (products.Count() <=0)
+        {
+            emptyListMessage = "No products found";
+        }
+    } 
+} 

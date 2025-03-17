@@ -1,0 +1,16 @@
+﻿<div class="brand-item">
+    <InputCheckbox @bind-Value="selectedOffer" />
+    <p class="brand-item-text">Buy More, Save more</p>
+</div>
+<div class="brand-item">
+    <InputCheckbox @bind-Value="selectedOffer" />
+    <p class="brand-item-text">No Cost EMI</p>
+</div>
+<div class="brand-item">
+    <InputCheckbox @bind-Value="selectedOffer" />
+    <p class="brand-item-text">Special Price</p>
+</div>
+
+@code {
+    bool selectedOffer = false;
+}

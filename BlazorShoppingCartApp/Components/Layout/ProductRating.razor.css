@@ -1,0 +1,8 @@
+﻿.brand-item {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.brand-item-text {
+    font-size: small;
+}

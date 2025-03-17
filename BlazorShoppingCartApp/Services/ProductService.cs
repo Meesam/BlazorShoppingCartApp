@@ -15,16 +15,16 @@ namespace BlazorShoppingCartApp.Services
         }
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            List<Product> products = await (from p in _context.Products
-                                  join i in _context.ProductImages on p.Id equals i.ProductId
-                                  select new Product
-                                  {
-                                      Id = p.Id,
-                                      Name = p.Name,
-                                      Description = p.Description,
-                                      Price = p.Price,
-                                      Quantity = p.Quantity,
-                                      ProductImages = new List<ProductImages>
+            List<Product> products = await (from p in _context.Set<Product>()
+                                            from i in _context.Set<ProductImages>().Where(i => p.Id == i.ProductId).DefaultIfEmpty()
+                                            select new Product
+                                            {
+                                                Id = p.Id,
+                                                Name = p.Name,
+                                                Description = p.Description,
+                                                Price = p.Price,
+                                                Quantity = p.Quantity,
+                                                ProductImages = i != null ? new List<ProductImages>
                                           {
                                               new ProductImages
                                               {
@@ -32,8 +32,8 @@ namespace BlazorShoppingCartApp.Services
                                                   ProductId = i.ProductId,
                                                   ImageUrl = i.ImageUrl
                                               }
-                                          }
-                                  }).ToListAsync();
+                                          } : new List<ProductImages>()
+                                            }).ToListAsync();
             return products;
         }
     }

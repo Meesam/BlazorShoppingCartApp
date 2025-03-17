@@ -1,6 +1,26 @@
 ﻿<div class="sidebar-container">
-    Side Bar
+    <div class="heading-container">
+        <p class="heading">Filters</p>
+    </div>
+    <div class="price-slider">
+        <p class="sub-heading">Price</p>
+        <div class="price-container">
+            <PriceRange />
+        </div>
+    </div>
+    <div class="brand">
+        <p class="sub-heading">Brand</p>
+        <div class="brand-container">
+            <ProductBrand />
+        </div>
+    </div>
+    <div class="offers">Offers</div>
+    <div class="rating">Rating</div>
 </div>
+
+@code{
+    bool checkedBrand = false;
+}
 
 
 

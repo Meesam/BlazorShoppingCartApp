@@ -1,28 +1,39 @@
-﻿<div class="header-container">
+﻿@inject IDialogService Dialog
+
+<div class="header-container">
     <ul>
         <li>
             <NavLink class="nav-link-a" href="">
-                <i class="bi bi-house"></i> Home
+                <MudIcon Icon="material-symbols-outlined/home" Size="Size.Small" /> Home
+            </NavLink>
+        </li>
+        <li>
+            <NavLink class="nav-link-a" href="/products">
+                <MudIcon Icon="material-symbols-outlined/inventory_2" Size="Size.Small" /> Products
             </NavLink>
         </li>
         <li>
             <NavLink class="nav-link-a" href="">
-                <i class="bi bi-layers"></i> Products
-            </NavLink>
-        </li>
-        <li>
-            <NavLink class="nav-link-a" href="">
-                <i class="bi bi-hdd-stack"></i> Services
+                <MudIcon Icon="material-symbols-outlined/design_services" Size="Size.Small" /> Services
             </NavLink>
         </li>
     </ul>
     <div class="cart">
+        <MudButton class="nav-link-a" OnClick="@(() => OpenDialogAsync(_closeButton))" Color="Color.Primary">
+            <MudIcon Icon="material-symbols-outlined/lock" Size="Size.Small" /> Login/Register
+        </MudButton>
+        
         <NavLink class="nav-link-a" href="">
-            <i class="bi bi-cart3"></i> Cart
+            <MudIcon Icon="material-symbols-outlined/shopping_cart" Size="Size.Small" /> Cart
         </NavLink>
     </div>
 </div>
 
 @code {
-
+    private readonly DialogOptions _maxWidth = new() { MaxWidth = MaxWidth.Large, FullWidth = true };
+    private readonly DialogOptions _closeButton = new() { CloseButton = true };
+    private Task OpenDialogAsync(DialogOptions options)
+    {
+        return Dialog.ShowAsync<Dialog>("Register/Login", options);
+    }
 }

@@ -1,0 +1,14 @@
+﻿::deep .min-price-select {
+    width: 100%;
+    margin-right: 10px;
+}
+
+::deep .max-price-select {
+    width: 100%;
+    margin-left: 10px;
+}
+
+
+.horizontal-spacing{
+    margin:0 10px;
+}

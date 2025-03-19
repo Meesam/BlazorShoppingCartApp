@@ -1,21 +1,21 @@
-﻿<InputSelect class="min-price-select" @bind-Value="selectedMinPrice">
-    <option value="">Min</option>
-    <option value="100">$100</option>
-    <option value="200">$200</option>
-    <option value="300">$300</option>
-    <option value="400">$400</option>
-    <option value="500">$500</option>"
-</InputSelect>
-<p>To</p>
-<InputSelect class="max-price-select" @bind-Value="selectedMaxPrice">
-    <option value="100">$100</option>
-    <option value="200">$200</option>
-    <option value="300">$300</option>
-    <option value="400">$400</option>
-    <option value="500">$500</option>
-</InputSelect>
+﻿
+<MudSelect Placeholder="Select Min. Price" Dense="true" Clearable="true" @bind-Value="selectedMinPrice" Variant="Variant.Outlined" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Tertiary">
+    <MudSelectItem Value=0>Min</MudSelectItem>
+    <MudSelectItem Value=100>$100</MudSelectItem>
+    <MudSelectItem Value=200>$200</MudSelectItem>
+    <MudSelectItem Value=300>$300</MudSelectItem>
+</MudSelect>
+<p class="horizontal-spacing">To</p>
+<MudSelect Placeholder="Select Max. Price" Dense="true" Clearable="true" @bind-Value="selectedMaxPrice" Variant="Variant.Outlined" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Tertiary">
+    <MudSelectItem Value=100>$100</MudSelectItem>
+    <MudSelectItem Value=200>$200</MudSelectItem>
+    <MudSelectItem Value=300>$300</MudSelectItem>
+    <MudSelectItem Value=400>$400</MudSelectItem>
+</MudSelect>
+
 
 @code {
-    string selectedMinPrice = "";
-    string selectedMaxPrice = "";
+    int selectedMinPrice = 0;
+    int selectedMaxPrice = 100;
+
 }

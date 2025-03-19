@@ -1,0 +1,82 @@
+﻿@using System.ComponentModel.DataAnnotations
+<MudDialog >
+    <DialogContent>
+        <MudTabs ApplyEffectsToContainer="true">
+            <MudTabPanel Text="Register">
+                <EditForm FormName="Register" Model="@registerUser" OnValidSubmit="OnValidSubmitRegister">
+                    <DataAnnotationsValidator />
+                    <MudGrid>
+                        <MudItem lg="12" md="12" sm="12">
+                            
+                                <MudCardContent>
+                                    <MudTextField Label="Name"
+                                                  @bind-Value="registerUser.Name" For="@(() => registerUser.Name)" />
+                                    <MudTextField Label="Email" Class="mt-3"
+                                                  @bind-Value="registerUser.Email" For="@(() => registerUser.Email)" />
+                                    <MudTextField Label="Password" HelperText="Choose a strong password" Class="mt-3"
+                                                  @bind-Value="registerUser.Password" For="@(() => registerUser.Password)" InputType="InputType.Password" />
+                                    <MudTextField Label="Confirm Password" HelperText="Repeat the password" Class="mt-3"
+                                                  @bind-Value="registerUser.ConfirmPassword" For="@(() => registerUser.ConfirmPassword)" InputType="InputType.Password" />
+                                </MudCardContent>
+                                <MudCardActions>
+                                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+                                </MudCardActions>
+                            
+                        </MudItem>
+                    </MudGrid>
+                </EditForm>
+            </MudTabPanel>
+            <MudTabPanel Text="Login">
+                <EditForm FormName="Login" Model="@loginUser" OnValidSubmit="OnValidSubmitLogin">
+                    <DataAnnotationsValidator />
+                    <MudGrid>
+                        <MudItem lg="12" md="12" sm="12">
+                           
+                                <MudCardContent>
+                                    
+                                    <MudTextField Label="Email" Class="mt-3"
+                                                  @bind-Value="loginUser.Email" For="@(() => loginUser.Email)" />
+                                    <MudTextField Label="Password" Class="mt-3"
+                                                  @bind-Value="loginUser.Password" For="@(() => loginUser.Password)" InputType="InputType.Password" />
+                             
+                                </MudCardContent>
+                                <MudCardActions>
+                                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+                                </MudCardActions>
+                            
+                        </MudItem>
+                    </MudGrid>
+                </EditForm>
+            </MudTabPanel>
+            
+        </MudTabs>
+    </DialogContent>
+    <DialogActions>
+        
+    </DialogActions>
+</MudDialog>
+
+@code {
+    
+    
+    RegisterUser registerUser = new RegisterUser();
+    
+    LoginUser loginUser = new LoginUser();
+    
+    [CascadingParameter]
+    private IMudDialogInstance MudDialog { get; set; }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void OnValidSubmitRegister(EditContext context)
+    {
+       
+        StateHasChanged();
+    }
+
+    private void OnValidSubmitLogin(EditContext context)
+    {
+
+        StateHasChanged();
+    }
+}

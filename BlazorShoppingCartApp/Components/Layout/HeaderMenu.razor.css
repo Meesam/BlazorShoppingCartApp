@@ -14,14 +14,15 @@
 
 .cart {
     margin: 0px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 ::deep .nav-link-a {
     color: #FFFFFF;
     font-size: large;
-}
-
-::deep .nav-link-a:hover {
-    text-decoration:underline;
+    display:flex;
+    gap:5px;
 }
 

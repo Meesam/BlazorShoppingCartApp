@@ -1,32 +1,28 @@
 ﻿<div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Nike</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Label="Nike" Color="Color.Primary"></MudCheckBox>
+   
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Spyker</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Label="Spyker" Color="Color.Primary"></MudCheckBox>
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Levis</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Color="Color.Primary">Levis</MudCheckBox>
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Being Human</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Color="Color.Primary">Being Human</MudCheckBox>
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Lorel</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Color="Color.Primary">Lorel</MudCheckBox>
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Ipsum</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Color="Color.Primary">Ipsum</MudCheckBox>
 </div>
 <div class="brand-item">
-    <InputCheckbox @bind-Value="checkedBrand" />
-    <p class="brand-item-text">Board</p>
+    <MudCheckBox @bind-Value="checkedBrand" Dense="true" Size="Size.Small" Color="Color.Primary">Board</MudCheckBox>
 </div>
 
 @code {
     bool checkedBrand = false;
+
+    
 }

@@ -2,6 +2,7 @@ using BlazorShoppingCartApp.Components;
 using BlazorShoppingCartApp.Data;
 using BlazorShoppingCartApp.Models;
 using BlazorShoppingCartApp.Services;
+using BlazorShoppingCartApp.Services.Auth;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,7 @@ builder.Services.AddIdentity<User, IdentityRole>()
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
-    options.LoginPath = "/Account/Login";
+    options.LoginPath = "/";
     options.AccessDeniedPath = "/AccessDenied";
     options.Cookie.Name = "BlazorShoppingCartAppCookie";
     options.Cookie.Expiration = TimeSpan.FromMinutes(60);
@@ -31,11 +32,15 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization();
 
+builder.Services.AddCascadingAuthenticationState();
+
 //Set up the database
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//Add the ProductService
+//Add the ProductService, BrandService, and other services
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 

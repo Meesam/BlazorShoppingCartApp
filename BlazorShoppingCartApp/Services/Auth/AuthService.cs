@@ -24,8 +24,10 @@ namespace BlazorShoppingCartApp.Services.Auth
 
             try
             {
-                var signInResult = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent: false, lockoutOnFailure: false);
-                if (signInResult.Succeeded) return true;
+                var user = await _userManager.FindByEmailAsync(loginUser.Email);
+                if (user is null) return false;
+                var password = await _userManager.CheckPasswordAsync(user, loginUser.Password);
+                if (user is not null && password) return true;
                 return false;
             }
             catch (Exception)

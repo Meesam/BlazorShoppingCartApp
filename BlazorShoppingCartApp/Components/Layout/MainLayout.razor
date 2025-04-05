@@ -8,18 +8,21 @@
 @* Needed for snackbars *@
 <MudSnackbarProvider/>
 
-<div class="h-screen w-screen bg-[#f5f5f5]">
+<div class="h-screen w-screen bg-[#f5f5f5] overflow-auto">
     <div class="grid grid-rows-12 grid-cols-12 h-full">
         <header class="shadow col-start-1 lg:col-start-3 col-end-13 row-start-1 row-end-2">
             <AdminHeader/>
         </header>
-        <aside class="lg:border lg:border-gray-300 hidden lg:block lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-13">
+        <aside class="lg:border lg:border-[#e5e5e5] hidden lg:block lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-13">
             <AdminSideBar/>
         </aside>
-        <main class="col-start-1 lg:col-start-3 col-end-13 row-start-2 row-end-13 px-8 py-5">
-            @Body
+        <main class="col-start-1 lg:col-start-3 col-end-13 row-start-2 row-end-13 px-8 py-5 flex flex-col">
+            <div class="grow">
+                @Body
+            </div>
+            <footer class="border border-[#e5e5e5]">Footer</footer>
         </main>
-        <footer class="border border-gray-300 col-start-1 lg:col-start-3 col-end-13 row-start-12 row-end-13">Footer</footer> 
+         
     </div>
     
 </div>

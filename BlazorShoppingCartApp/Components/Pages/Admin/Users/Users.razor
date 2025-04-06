@@ -1,119 +1,59 @@
 ﻿@page "/admin/Users/list"
-<div class="h-full w-full overflow-auto bg-white rounded-2xl border border-[#e5e5e5] px-5 py-8 flex flex-col gap-5">
+<div class="h-full w-full overflow-auto bg-white dark:bg-[#262626] rounded-2xl border border-[#e5e5e5] dark:border-[#404040] px-5 py-8 flex flex-col gap-5">
     <PageHeader/>
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div class="grow">
             <InputText @bind-Value="Search" placeholder="Quick Search..." DisplayName="Search"
-                       class="font-medium text-sm bg-[#f5f5f5] p-3 rounded-lg outline-blue-600 w-full"/>
+                       class="font-medium dark:text-[#a3a3a3] text-sm bg-[#f5f5f5] dark:border-none dark:bg-[#525252] p-3 rounded-lg outline-blue-600 w-full"/>
         </div>
         <button type="button"
-                class="border-1 border-gray-300 hover:border-blue-600 bg-white px-4 py-[6px] rounded-lg font-medium text-gray-600 cursor-pointer group">
-            <i class="bi bi-funnel text-lg text-gray-600 group-hover:text-blue-600"></i>
-            <span class="group-hover:text-blue-600">Filter</span>
+                class="border-1 border-gray-300 dark:border-[#404040] hover:border-blue-600 dark:hover:border-[#e5e5e5] bg-white dark:bg-[#525252] dark:text-[#e5e5e5] px-4 py-[6px] rounded-lg font-medium text-gray-600 cursor-pointer group">
+            <i class="bi bi-funnel text-lg text-gray-600 group-hover:text-blue-600 dark:text-[#e5e5e5] dark:group-hover:text-[#e5e5e5]"></i>
+            <span class="group-hover:text-blue-600 dark:group-hover:text-[#e5e5e5]">Filter</span>
         </button>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full">
             <thead>
-            <tr class="border-b border-b-[#e5e5e5]">
+            <tr class="border-b border-b-[#e5e5e5] dark:border-b-[#525252]">
                 <th class="text-left font-medium text-base text-gray-600 uppercase p-0">
                     <StyledCheckBox />
                 </th>
-                <th class="text-left font-medium text-base text-gray-600 uppercase">Name</th>
-                <th class="text-left font-medium text-base text-gray-600 uppercase">Email</th>
-                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase">Dob</th>
-                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase">Location</th>
-                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase">Status</th>
+                <th class="text-left font-medium text-base text-gray-600 uppercase dark:text-[#f5f5f5]">Name</th>
+                <th class="text-left font-medium text-base text-gray-600 uppercase dark:text-[#f5f5f5]">Email</th>
+                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase dark:text-[#f5f5f5]">Dob</th>
+                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase dark:text-[#f5f5f5]">Phone</th>
+                <th class="hidden md:table-cell text-left font-medium text-base text-gray-600 uppercase dark:text-[#f5f5f5]">Status</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="border-b border-b-[#e5e5e5] hover:bg-[#f5f5f5]">
-                <td class="p-0">
-                    <StyledCheckBox />
-                </td>
-                <td class="py-3 min-w-36">
-                    <div class="flex items-center gap-4">
-                        <img src="images/personFace.jfif" alt="Person" class="rounded-full h-10 w-10"/>
-                        <a href="/admin/1/UserDetails" class="text-black text-base font-medium cursor-pointer hover:text-blue-600">Meesam</a>
-                    </div>
-                </td>
-                <td class="min-w-60"><span class="truncate">Meesam.engineer@gmail.com</span></td>
-                <td class="hidden md:table-cell min-w-32">02/05/1986</td>
-                <td class="hidden md:table-cell min-w-40">New Delhi, India</td>
-                <td class="hidden md:md:table-cell min-w-30">
-                    <span class="py-1 px-3 bg-green-300 rounded-md text-black text-sm font-medium">Active</span>
-                </td>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <i class="bi bi-pencil text-gray-600 cursor-pointer"></i>
-                        <i class="bi bi-trash3 text-red-500 cursor-pointer"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr class="border-b border-b-[#e5e5e5] hover:bg-[#f5f5f5]">
-                <td class="p-0">
-                    <StyledCheckBox />
-                </td>
-                <td class="py-3">
-                    <div class="flex items-center gap-4">
-                        <img src="images/personFace.jfif" alt="Person" class="rounded-full h-10 w-10"/>
-                        <a href="/admin/2/UserDetails" class="text-black text-base font-medium cursor-pointer hover:text-blue-600">Meesam</a>
-                    </div>
-                </td>
-                <td>meesam.engineer@gmail.com</td>
-                <td class="hidden md:table-cell">02/05/1986</td>
-                <td class="hidden md:table-cell">New Delhi, India</td>
-                <td class="hidden md:table-cell"><span class="py-1 px-3 bg-green-300 rounded-md text-black text-sm font-medium">Active</span></td>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <i class="bi bi-pencil text-gray-600 cursor-pointer"></i>
-                        <i class="bi bi-trash3 text-red-500 cursor-pointer"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr class="border-b border-b-[#e5e5e5] hover:bg-[#f5f5f5]">
-                <td class="p-0">
-                    <StyledCheckBox />
-                </td>
-                <td class="py-3">
-                    <div class="flex items-center gap-4">
-                        <img src="images/personFace.jfif" alt="Person" class="rounded-full h-10 w-10"/>
-                        <a href="/admin/3/UserDetails" class="text-black text-base font-medium cursor-pointer hover:text-blue-600">Meesam</a>
-                    </div>
-                </td>
-                <td>meesam.engineer@gmail.com</td>
-                <td class="hidden md:table-cell">02/05/1986</td>
-                <td class="hidden md:table-cell">New Delhi, India</td>
-                <td class="hidden md:table-cell"><span class="py-1 px-3 bg-green-300 rounded-md text-black text-sm font-medium">Active</span></td>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <i class="bi bi-pencil text-gray-600 cursor-pointer"></i>
-                        <i class="bi bi-trash3 text-red-500 cursor-pointer"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr class="hover:bg-[#f5f5f5]">
-                <td class="p-0">
-                    <StyledCheckBox />
-                </td>
-                <td class="py-3">
-                    <div class="flex items-center gap-4">
-                        <img src="images/personFace.jfif" alt="Person" class="rounded-full h-10 w-10"/>
-                        <a href="/admin/4/UserDetails" class="text-black text-base font-medium cursor-pointer hover:text-blue-600">Meesam</a>
-                    </div>
-                </td>
-                <td>meesam.engineer@gmail.com</td>
-                <td class="hidden md:table-cell">02/05/1986</td>
-                <td class="hidden md:table-cell">New Delhi, India</td>
-                <td class="hidden md:table-cell"><span class="py-1 px-3 bg-red-300 rounded-md text-black text-sm font-medium">Blocked</span></td>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <i class="bi bi-pencil text-gray-600 cursor-pointer"></i>
-                        <i class="bi bi-trash3 text-red-500 cursor-pointer"></i>
-                    </div>
-                </td>
-            </tr>
+            @foreach(var user in users)
+            {
+                <tr class="border-b border-b-[#e5e5e5] dark:border-b-[#525252] hover:bg-[#f5f5f5] dark:hover:bg-[#404040]">
+                    <td class="p-0">
+                        <StyledCheckBox/>
+                    </td>
+                    <td class="py-3 min-w-36">
+                        <div class="flex items-center gap-4">
+                            <img src="images/personFace.jpg" alt="Person" class="rounded-full h-10 w-10"/>
+                            <a href="/admin/1/UserDetails" class="text-black text-base font-medium cursor-pointer hover:text-blue-600 dark:text-[#f5f5f5]">@user.UserName</a>
+                        </div>
+                    </td>
+                    <td class="min-w-60"><span class="truncate dark:text-[#a3a3a3] text-gray-600">@user.NormalizedEmail</span></td>
+                    <td class="hidden md:table-cell min-w-32 dark:text-[#a3a3a3] text-gray-600">@user.DateOfBirth</td>
+                    <td class="hidden md:table-cell min-w-40 dark:text-[#a3a3a3] text-gray-600">@user.PhoneNumber</td>
+                    <td class="hidden md:md:table-cell min-w-30">
+                        <span class="py-1 px-3 @(user.Id =="Active" ? "bg-green-300" :"bg-red-300") rounded-md text-black text-sm font-medium">@user.Id</span>
+                    </td>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-pencil cursor-pointer dark:text-[#a3a3a3] text-gray-600"></i>
+                            <i class="bi bi-trash3 text-red-500 cursor-pointer"></i>
+                        </div>
+                    </td>
+                </tr>
+            }
             </tbody>
         </table>
     </div>
@@ -123,4 +63,50 @@
 @code {
     string Search { get; set; }
     bool UserCheck { get; set; } = false;
+    List<User> users = new List<User>();
+
+    protected override void OnInitialized()
+    {
+        users.Add(new User
+        {
+            NormalizedEmail = "Meesam.engineer@gmail.com",
+            UserName = "Angelina Gotelli",
+            DateOfBirth = DateOnly.FromDateTime(DateTime.Now),
+            PhoneNumber = "8826120526",
+            Id = "Active"
+        });
+        users.Add(new User
+        {
+            NormalizedEmail = "Meesam.engineer@gmail.com",
+            UserName = "Angelina Gotelli",
+            DateOfBirth = DateOnly.FromDateTime(DateTime.Now),
+            PhoneNumber = "8826120526",
+            Id = "Active"
+        });
+        users.Add(new User
+        {
+            NormalizedEmail = "Meesam.engineer@gmail.com",
+            UserName = "Angelina Gotelli",
+            DateOfBirth = DateOnly.FromDateTime(DateTime.Now),
+            PhoneNumber = "8826120526",
+            Id = "Active"
+        });
+        users.Add(new User
+        {
+            NormalizedEmail = "Meesam.engineer@gmail.com",
+            UserName = "Angelina Gotelli",
+            DateOfBirth = DateOnly.FromDateTime(DateTime.Now),
+            PhoneNumber = "8826120526",
+            Id = "Blocked"
+        });
+        users.Add(new User
+        {
+            NormalizedEmail = "Meesam.engineer@gmail.com",
+            UserName = "Angelina Gotelli",
+            DateOfBirth = DateOnly.FromDateTime(DateTime.Now),
+            PhoneNumber = "8826120526",
+            Id = "Active"
+        });
+    }
+
 }

@@ -1,6 +1,8 @@
-﻿@page "/admin/Users/list"
+﻿@page "/admin/Products"
+@inject NavigationManager _navigationManager
+
 <div class="h-full w-full overflow-auto bg-white dark:bg-[#262626] rounded-2xl border border-[#e5e5e5] dark:border-[#404040] px-5 py-8 flex flex-col gap-5">
-    <PageHeader PageHeading="Customers" PrimaryButtonText="Add New" SecondaryButtonText="Export"/>
+    <PageHeader PageHeading="Products" PrimaryButtonText="Add Product" PrimaryButtonIcon="bi-plus" SecondaryButtonText="Export" PrimaryButtonAction="RedirectToAddProduct"/>
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div class="grow">
             <InputText @bind-Value="Search" placeholder="Quick Search..." DisplayName="Search"
@@ -107,6 +109,11 @@
             PhoneNumber = "8826120526",
             Id = "Active"
         });
+    }
+
+    private void RedirectToAddProduct()
+    {
+        _navigationManager.NavigateTo("/admin/AddProduct");
     }
 
 }

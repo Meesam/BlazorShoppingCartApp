@@ -1,0 +1,22 @@
+﻿<div class="flex flex-col grow gap-4 bg-white dark:bg-[#262626] border-[#e5e5e5] dark:border-[#404040] rounded-2xl border p-5">
+    <span class="font-semibold text-black dark:text-white text-xl">Basic Information</span>
+    <form class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2 text-gray-600 dark:text-[#f5f5f5]">
+            <label class="text-sm font-medium">Product name</label>
+            <InputText @bind-value="ProductName" placeholder="Product Name" class="font-medium dark:text-[#a3a3a3] text-sm bg-[#f5f5f5] dark:border-none dark:bg-[#525252] p-3 rounded-lg outline-blue-600" />
+        </div>
+        <div class="flex flex-col gap-2 text-gray-600 dark:text-[#f5f5f5]">
+            <label class="text-sm font-medium">Product Code</label>
+            <InputText @bind-value="ProductName" placeholder="Product Code" class="font-medium dark:text-[#a3a3a3] text-sm bg-[#f5f5f5] dark:border-none dark:bg-[#525252] p-3 rounded-lg outline-blue-600" />
+        </div>
+
+        <div class="flex flex-col gap-2 text-gray-600 dark:text-[#f5f5f5]">
+            <label class="text-sm font-medium">Product Description</label>
+            <InputText @bind-value="ProductName" placeholder="Product Description" multiline="true" class="font-medium dark:text-[#a3a3a3] text-sm bg-[#f5f5f5] dark:border-none dark:bg-[#525252] p-3 rounded-lg outline-blue-600" />
+        </div>
+    </form>
+</div>
+
+@code {
+    string ProductName { get; set; }
+}

@@ -64,7 +64,6 @@ namespace BlazorShoppingCartApp.Services
                                                 Name = p.Name,
                                                 Description = p.Description,
                                                 Price = p.Price,
-                                                Quantity = p.Quantity,
                                                 ProductImages = i != null ? new List<ProductImages>
                                           {
                                               new ProductImages

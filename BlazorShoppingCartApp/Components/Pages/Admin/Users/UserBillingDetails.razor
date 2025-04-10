@@ -1,0 +1,97 @@
+﻿<div class="flex flex-col gap-4">
+    <span class="font-medium text-lg text-black dark:text-white">Purchase history</span>
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <tbody>
+            @foreach(var history in _billingHistories)
+            {
+                <tr class="border-b border-b-[#e5e5e5] dark:border-b-[#525252] hover:bg-[#f5f5f5] dark:hover:bg-[#404040]">
+                    <td class="min-w-24 p-3">
+                        <div class="flex items-center gap-4">
+                            <span class="truncate dark:text-[#a3a3a3] text-gray-600 font-medium">@history.Plan</span>
+                        </div>
+                    </td>
+                    <td class="min-w-20"><span class="truncate dark:text-[#a3a3a3] text-gray-600 font-medium">@history.Status</span></td>
+                    <td class="min-w-32 dark:text-[#a3a3a3] text-gray-600 font-medium">@history.PurchaseDate</td>
+                    <td class=" min-w-40 dark:text-[#a3a3a3] text-gray-600 font-medium">$@history.Amount</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <span class="font-medium text-lg text-black dark:text-white mt-2">Addresses</span>
+    <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+        <div class="flex flex-col grow border rounded-xl border-[#e5e5e5] dark:border-[#404040] p-4 gap-1">
+            <span class="font-medium text-black dark:text-white mb-2">Billing Address</span>
+            <span class="font-medium">123 Main St</span>
+            <span class="font-medium">New York</span>
+            <span class="font-medium">10001</span>
+            <span class="font-medium">United States</span>
+        </div>
+        <div class="flex flex-col grow border rounded-xl border-[#e5e5e5] dark:border-[#404040] p-4 gap-1">
+            <span class="font-medium text-black dark:text-white mb-2">Delivery Address</span>
+            <span class="font-medium">123 Main St</span>
+            <span class="font-medium">New York</span>
+            <span class="font-medium">10001</span>
+            <span class="font-medium">United States</span>
+        </div>
+    </div>
+    <span class="font-medium text-lg text-black dark:text-white mt-2">Payment Methods</span>
+    <div class="flex items-center">
+        <div class="flex flex-col grow border rounded-xl border-[#e5e5e5] dark:border-[#404040] p-4 gap-1">
+            <div class="flex items-center gap-3 border-b border-b-[#e5e5e5] dark:border-b-[#404040] pb-4">
+                <img src="images/visa.png" alt="visa card" />
+                <div class="flex flex-col">
+                    <span class="text-sm font-medium text-black dark:text-white">Angelina Gotelli •••• 0392</span>
+                    <span class="text-sm font-medium ">Expired Dec 2025</span>
+                </div>
+                <div class="text-xs text-blue-500 bg-blue-200 font-medium py-1 px-2 rounded-md self-start">Primary</div>
+            </div>
+            <div class="flex items-center gap-3 pt-4">
+                <img src="images/mastercard.png" alt="visa card" />
+                <div class="flex flex-col">
+                    <span class="text-sm font-medium text-black dark:text-white">Angelina Gotelli •••• 8461</span>
+                    <span class="text-sm font-medium ">Expired Dec 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    public class BillingHistory
+    {
+        public string Plan { get; set; }
+        public string Status { get; set; }
+        public DateOnly PurchaseDate { get; set; }
+        public double Amount { get; set; }
+    }
+
+    List<BillingHistory> _billingHistories = new List<BillingHistory>();
+
+    protected override void OnInitialized()
+    {
+        _billingHistories.Add(new BillingHistory
+        {
+            Plan = "Acme pro plan (monthly)",
+            Status = "Pending",
+            PurchaseDate = DateOnly.FromDateTime(DateTime.Now),
+            Amount = 29.89
+        });
+        _billingHistories.Add(new BillingHistory
+        {
+            Plan = "Acme pro plan (monthly)",
+            Status = "Paid",
+            PurchaseDate = DateOnly.FromDateTime(DateTime.Now),
+            Amount = 54.32
+        });
+        _billingHistories.Add(new BillingHistory
+        {
+            Plan = "Acme pro plan (monthly)",
+            Status = "Paid",
+            PurchaseDate = DateOnly.FromDateTime(DateTime.Now),
+            Amount = 59.43
+        });
+    }
+
+}

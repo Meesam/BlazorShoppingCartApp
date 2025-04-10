@@ -1,0 +1,38 @@
+﻿@page "/admin/AddProduct"
+@inject NavigationManager NavigationManager
+
+
+<div class="flex flex-col gap-3">
+    <div class="flex items-center justify-between">
+        <p class="font-semibold text-2xl dark:text-white">Create Product</p>
+        <button class="text-blue-600 font-medium cursor-pointer" @onclick="@(()=>NavigationManager.NavigateTo("/admin/Products"))">
+            <i class="bi bi-arrow-left"></i>
+            Back to List
+        </button>
+    </div>
+    
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row gap-4">
+            <ProductBasicInformation />
+            <ProductImages />
+        </div>
+        <div class="flex flex-col lg:flex-row gap-4">
+            <ProductPricing />
+            <ProductAttributes />
+        </div>
+        <div class="flex justify-end gap-4 bg-white dark:bg-[#262626] border-[#e5e5e5] dark:border-[#404040] rounded-2xl border p-5">
+            <button type="button" class="dark:bg-[#525252] dark:border-[#404040] dark:hover:border-[#e5e5e5] border-1 border-gray-300 hover:border-blue-600 bg-white px-4 py-2 rounded-lg font-medium text-gray-600 cursor-pointer group">
+                <i class="bi text-lg text-gray-600 group-hover:text-blue-600 dark:group-hover:text-[#e5e5e5] dark:text-[#e5e5e5]"></i>
+                <span class="group-hover:text-blue-600 dark:text-[#e5e5e5] dark:group-hover:text-[#e5e5e5]">Cancel</span>
+            </button>
+            <button  type="button" class="bg-blue-500 hover:bg-blue-400 border-1 border-blue-500 text-white font-medium px-4 py-2 rounded-lg cursor-pointer">
+                <i class="bi  text-lg"></i>
+                Submit
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+}

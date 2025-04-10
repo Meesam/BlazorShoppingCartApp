@@ -1,0 +1,23 @@
+﻿<div class="flex flex-col gap-4 bg-white dark:bg-[#262626] border-[#e5e5e5] dark:border-[#404040] rounded-2xl border p-5 lg:w-[30%] w-full">
+    <span class="font-semibold text-black dark:text-white text-xl">Product Images</span>
+    <div class="text-gray-600 dark:text-[#f5f5f5]">
+        <div class="flex flex-col gap-3">
+            <label class="text-sm">Choose a product photo or simply drag and drop up to 5 photos here.</label>
+            <div class="h-[180px] w-full border border-gray-600 border-dashed relative flex items-center justify-center rounded-xl">
+                <InputFile multiple class="opacity-0 absolute left-0 inline-block w-full h-full cursor-pointer" />
+                <div class="flex flex-col">
+                    <img src="images/upload.png" alt="Upload Images" class="bg-none h-20 w-20 opacity-25 self-center"/>
+                    <label class="text-blue-500 font-medium text-sm text-center">Click here to browse</label>                                                                                                                                                                                                                               
+                </div>
+                
+            </div>
+            
+            <span class="text-sm">Image formats: .jpg, .jpeg, .png, preferred size: 1:1, file size is restricted to a maximum of 500kb.</span>
+        </div>
+        
+    </div>
+</div>
+
+@code {
+    
+}

@@ -9,24 +9,156 @@
         <button type="button" @onclick="DarkModeToggel">
             @if(isDarkMode)
             {
-              <i class="bi bi-brightness-high text-xl dark:text-gray-300 text-gray-500 cursor-pointer"></i>
+                <i class="bi bi-brightness-high text-xl dark:text-gray-300 text-gray-500 cursor-pointer"></i>
             }
             else
             {
                 <i class="bi bi-moon-fill text-xl text-gray-500 cursor-pointer"></i>
             }
         </button>
-        <i class="bi bi-bell text-xl text-gray-500 cursor-pointer dark:text-gray-300"></i>
-        <i class="bi bi-gear text-xl text-gray-500 cursor-pointer dark:text-gray-300"></i>
+        <div class="relative">
+            <button @onclick="ToggleNotification" @onblur="@(()=> IsNotificationOpen = false)">
+                <i class="bi bi-bell text-xl text-gray-500 cursor-pointer dark:text-gray-300"></i>
+            </button>
+            @if(IsNotificationOpen)
+            {
+                <div class="z-1 transition absolute w-[350px] right-0 shadow-2xl bg-white dark:bg-[#0a0a0a] border-[#e5e5e5] dark:border-[#404040] rounded-2xl border p-5">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 dark:text-[#a3a3a3] font-medium">Notifications</span>
+                            <i class="bi bi-envelope text-gray-600 font-medium dark:text-[#a3a3a3] "></i>
+                        </div>
+                        <div class="max-h-[300px] overflow-y-auto flex flex-col gap-1 text-gray-600 dark:text-[#f5f5f5]">
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                            <div class="flex items-center gap-3 rounded-xl p-2 dark:hover:bg-[#525252] hover:bg-[#f5f5f5]">
+                                <img src="images/personFace.jpg" alt="person" class="h-10 w-10 rounded-full self-start"/>
+                                <div class="grow flex flex-col gap-2">
+                                    <span class="text-sm font-normal">
+                                        <p class="font-medium text-black dark:text-white">
+                                            Jeremiah Minsk
+                                        </p>
+                                        mention in you in comment
+                                    </span>
+                                    <span class="text-xs">2 Minute ago</span>
+                                </div>
+                            </div>
+                            <div class="border-b border-[#e5e5e5] dark:border-[#404040] my-2"></div>
+                        </div>
+                        <button type="button" class="bg-blue-500 hover:bg-blue-400 border-1 border-blue-500 text-white font-medium px-4 py-2 rounded-lg cursor-pointer">
+                            <i class="bi bi-activity text-lg"></i>
+                            View All Activity
+                        </button>
+                    </div>
+                </div>                                                                                                                                                                                                                                                                                               
+            }
+            
+        </div>
         
-        <div class="h-10 w-10 rounded-full cursor-pointer">
-            <img src="images/personFace.jpg" alt="profile" class="rounded-full object-contain"/>
+        <button>
+            <i class="bi bi-gear text-xl text-gray-500 cursor-pointer dark:text-gray-300"></i>
+        </button>
+        
+        
+        <div class="h-10 w-10 rounded-full cursor-pointer relative">
+            <button @onclick="ToggleProfilePopUp" @onblur="@(()=> IsProfilePopUpOpen = false)"><img src="images/personFace.jpg" alt="profile" class="cursor-pointer rounded-full object-contain"/></button>
+            @if (IsProfilePopUpOpen)
+            {
+                <div class="z-1 transition absolute w-[200px] right-0 shadow-2xl bg-white dark:bg-[#0a0a0a] border-[#e5e5e5] dark:border-[#404040] rounded-2xl border p-3">
+                    <ul class="flex flex-col gap-2">
+                        <li class="h-12 px-2 rounded-md hover:bg-[#f5f5f5] dark:hover:bg-[#525252] flex items-center gap-2 group">
+                            <i class="bi bi-person text-gray-600 dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5] font-medium group-hover:text-black"></i>
+                            <a class="text-gray-600 dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5] font-medium group-hover:text-black" href="#">Profile</a>
+                        </li>
+                        <li class="px-2 h-12 rounded-md hover:bg-[#f5f5f5] dark:hover:bg-[#525252] flex items-center gap-2 group">
+                            <i class="bi bi-gear text-gray-600 font-medium group-hover:text-black dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5]"></i>
+                            <a class="text-gray-600 dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5] font-medium group-hover:text-black text-sm" href="/admin/Users/list">Account Setting</a>
+                        </li>
+                        <li class="px-2 h-12 rounded-md hover:bg-[#f5f5f5] dark:hover:bg-[#525252] flex items-center gap-2 group">
+                            <i class="bi bi-activity text-gray-600 font-medium group-hover:text-black dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5]"></i>
+                            <a class="text-gray-600 dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5] font-medium group-hover:text-black text-sm" href="/admin/Products">Activity Log</a>
+                        </li>
+                        <li class="px-2 h-12 rounded-md hover:bg-[#f5f5f5] dark:hover:bg-[#525252] flex items-center gap-2 group">
+                            <i class="bi bi-box-arrow-right text-gray-600 font-medium group-hover:text-black dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5]"></i>
+                            <a class="text-gray-600 dark:text-[#a3a3a3] dark:group-hover:text-[#e5e5e5] font-medium group-hover:text-black text-sm" href="/admin/Orders">Sign Out</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            }
         </div>
     </div>
     
 </div>
 
 @code {
+    bool IsNotificationOpen { get; set; } = false;
+    bool IsProfilePopUpOpen { get; set; } = false;
+
     [Parameter] 
     public bool isDarkMode { get; set; }
 
@@ -36,5 +168,15 @@
     public void DarkModeToggel()
     {
         ToggelDarkMode.InvokeAsync();
+    }
+
+    private void ToggleNotification()
+    {
+        IsNotificationOpen = !IsNotificationOpen;
+    }
+    
+    private void ToggleProfilePopUp()
+    {
+        IsProfilePopUpOpen = !IsProfilePopUpOpen;
     }
 }
